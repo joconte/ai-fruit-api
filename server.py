@@ -22,7 +22,7 @@ def predict_image_from_bytes(input_bytes):
 
 
 app = Starlette(debug=True)
-classes = ['banana_ok', 'banana_ripe', 'banana_unripe', 'apricot_ok', 'apricot_ripe', 'apricot_unripe', 'strawberry_ok', 'strawberry_ripe', 'strawberry_unripe', 'tomato_ok', 'tomato_ripe', 'tomato_unripe']
+classes = ['apricot_ok', 'apricot_ripe', 'apricot_unripe', 'banana_ok', 'banana_ripe', 'banana_unripe', 'strawberry_ok', 'strawberry_ripe', 'strawberry_unripe', 'tomato_ok', 'tomato_ripe', 'tomato_unripe']
 defaults.device = torch.device('cpu')
 learn = load_learner('models')
 
