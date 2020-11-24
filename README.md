@@ -14,7 +14,8 @@ Projet sur le front-end : A ajouter
 
 # Outils utilisés
 - FastAI
-- Jupyter Notebook
+- Starlette
+- Heroku
 
 # Groupe de travail
 - JACQUES Nils
