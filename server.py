@@ -1,5 +1,7 @@
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse, HTMLResponse, RedirectResponse
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 from fastai.vision import *
 import uvicorn
 import aiohttp
@@ -20,8 +22,11 @@ def predict_image_from_bytes(input_bytes):
     print({"prediction": str(pred_class), "scores": sorted(zip(learn.data.classes, map(float, losses)), key=lambda p: p[1], reverse=True)})
     return JSONResponse({"prediction": str(pred_class), "scores": sorted(zip(learn.data.classes, map(float, losses)), key=lambda p: p[1], reverse=True)})
 
+middleware = [
+    Middleware(CORSMiddleware, allow_origins=['*'])
+]
 
-app = Starlette(debug=True)
+app = Starlette(debug=True, middleware=middleware)
 classes = ['apricot_ok', 'apricot_ripe', 'apricot_unripe', 'banana_ok', 'banana_ripe', 'banana_unripe', 'strawberry_ok', 'strawberry_ripe', 'strawberry_unripe', 'tomato_ok', 'tomato_ripe', 'tomato_unripe']
 defaults.device = torch.device('cpu')
 learn = load_learner('models')
