@@ -27,7 +27,7 @@ middleware = [
     Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['*'], allow_headers=['*'])
 ]
 
-app = Starlette(degub=true, middleware=middleware)
+app = Starlette(degub=True, middleware=middleware)
 classes = ['apricot_ok', 'apricot_ripe', 'apricot_unripe', 'banana_ok', 'banana_ripe', 'banana_unripe', 'strawberry_ok', 'strawberry_ripe', 'strawberry_unripe', 'tomato_ok', 'tomato_ripe', 'tomato_unripe']
 defaults.device = torch.device('cpu')
 learn = load_learner('models')
