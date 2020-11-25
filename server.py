@@ -22,11 +22,13 @@ def predict_image_from_bytes(input_bytes):
     print({"prediction": str(pred_class), "scores": sorted(zip(learn.data.classes, map(float, losses)), key=lambda p: p[1], reverse=True)})
     return JSONResponse({"prediction": str(pred_class), "scores": sorted(zip(learn.data.classes, map(float, losses)), key=lambda p: p[1], reverse=True)})
 
+routes = ['/upload']
+
 middleware = [
     Middleware(CORSMiddleware, allow_origins=['*'])
 ]
 
-app = Starlette(debug=True, middleware=middleware)
+app = Starlette(routes=routes, middleware=middleware)
 classes = ['apricot_ok', 'apricot_ripe', 'apricot_unripe', 'banana_ok', 'banana_ripe', 'banana_unripe', 'strawberry_ok', 'strawberry_ripe', 'strawberry_unripe', 'tomato_ok', 'tomato_ripe', 'tomato_unripe']
 defaults.device = torch.device('cpu')
 learn = load_learner('models')
