@@ -11,7 +11,7 @@ Il s'agit de la partie API qui effectue des prédictions en utilisant notre mod�
 
 Projet sur l'entrainement du modèle : https://github.com/joconte/fruit-classifier
 
-Projet sur le front-end : A ajouter
+Projet sur le front-end : https://github.com/F5N34/fruit-sort
 
 # Outils utilisés
 - FastAI
